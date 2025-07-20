@@ -1,38 +1,44 @@
-package com.example.ourproject.adapter
+package com.example.todoapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ourproject.databinding.ItemTaskBinding //itemtusk сделаете заработает
+import com.example.ourproject.databinding.ItemTaskBinding
 import com.example.ourproject.model.TaskModel
-//import com.example.ourproject.util.CatGenerator  ???? obsudit вроде мы не генерим
-
+// мне нужно увидеть фрагмент добвления задачи
 class TaskAdapter(
     private val tasks: List<TaskModel>,
     private val onItemClicked: (TaskModel) -> Unit,
-    private val onImageClicked: (TaskModel) -> Unit
-) : RecyclerView.Adapter<TaskAdapter.TuskViewHolder>() {
+    private val onCheckboxClicked: (TaskModel) -> Unit
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     inner class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: TaskModel) {
             binding.titleText.text = task.title
             binding.descText.text = task.description
-            binding.root.setOnClickListener { onItemClicked(task) }
-            binding.taskCompleted.setOnClickListener {
-                task.is_Completed = true // кружок закрашивается зеленым цветом
-                }
+            binding.dateText.text = task.date
+            binding.checkBox.isChecked = task.isDone
+
+            binding.root.setOnClickListener {
+                onItemClicked(task)
+            }
+
+            binding.checkBox.setOnClickListener {
+                task.isDone = binding.checkBox.isChecked
+                onCheckboxClicked(task)
+            }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemTuskBinding.inflate(inflater, parent, false)
-        return TuskViewHolder(binding)
+        val binding = ItemTaskBinding.inflate(inflater, parent, false)
+        return TaskViewHolder(binding)
     }
-
-    override fun getItemCount(): Int = tasks.size
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(tasks[position])
     }
+
+    override fun getItemCount(): Int = tasks.size
 }
