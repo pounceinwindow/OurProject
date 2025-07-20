@@ -5,9 +5,9 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class TuskModel(
+data class TaskModel(
     val id: Int,
     val title: String,
     val description: String,
-    val is_Completed : Boolean
+    var is_Completed : Boolean
 ) : Parcelable
