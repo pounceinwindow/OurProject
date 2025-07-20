@@ -19,7 +19,7 @@ class TaskAdapter(
             binding.descText.text = task.description
             binding.root.setOnClickListener { onItemClicked(task) }
             binding.taskCompleted.setOnClickListener {
-                task.is_Completed = true
+                task.is_Completed = true // кружок закрашивается зеленым цветом
                 }
         }
     }
