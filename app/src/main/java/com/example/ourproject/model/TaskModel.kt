@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class TaskModel(
+    val id: String,
     var date : String,
     var title: String,
     var description: String,

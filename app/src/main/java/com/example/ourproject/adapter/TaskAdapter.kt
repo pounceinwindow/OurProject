@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ourproject.databinding.ItemTaskBinding
 import com.example.ourproject.model.TaskModel
-// мне нужно увидеть фрагмент добвления задачи
+
 class TaskAdapter(
     private val tasks: List<TaskModel>,
     private val onItemClicked: (TaskModel) -> Unit,
@@ -13,9 +13,9 @@ class TaskAdapter(
 ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     inner class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(task: TaskModel) {
             binding.titleText.text = task.title
-            binding.dateText.text = task.description
             binding.dateText.text = task.date
             binding.checkBox.isChecked = task.isDone
 
@@ -31,8 +31,7 @@ class TaskAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemTaskBinding.inflate(inflater, parent, false)
+        val binding = ItemTaskBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TaskViewHolder(binding)
     }
 
@@ -42,3 +41,4 @@ class TaskAdapter(
 
     override fun getItemCount(): Int = tasks.size
 }
+
