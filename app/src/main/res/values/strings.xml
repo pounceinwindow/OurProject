@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">OurProject</string>
+    <string name="app_name">ToDo</string>
+    <string name="completed_date_format">Выполнено: %s</string>
+    <string name="todolist">Список дел</string>
 </resources>
