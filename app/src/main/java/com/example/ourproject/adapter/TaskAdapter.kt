@@ -1,4 +1,4 @@
-package com.example.todoapp.adapter
+package com.example.ourproject.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ class TaskAdapter(
     inner class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: TaskModel) {
             binding.titleText.text = task.title
-            binding.descText.text = task.description
+            binding.dateText.text = task.description
             binding.dateText.text = task.date
             binding.checkBox.isChecked = task.isDone
 
