@@ -1,5 +1,6 @@
 package com.example.ourproject.ui
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.ourproject.databinding.FragmentTaskAddEditBinding
 import com.example.ourproject.viewmodel.TaskViewModel
+import java.util.Locale
 
 class AddEditTaskFragment : Fragment() {
 
@@ -32,7 +34,6 @@ class AddEditTaskFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity())[TaskViewModel::class.java]
 
@@ -40,10 +41,14 @@ class AddEditTaskFragment : Fragment() {
             viewModel.getTaskById(id)?.let { task ->
                 binding.editName.setText(task.title)
                 binding.editDate.setText(task.description)
+
+                val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+                val date = try {sdf.parse(task.description) } catch (e: Exception) { null }
+                date?.let {
+                    binding.calendar.date = it.time
+                }
             }
         }
-
-        binding.buttonSubmit.isEnabled = false
 
         binding.editName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -61,11 +66,15 @@ class AddEditTaskFragment : Fragment() {
                 viewModel.saveTask(taskId, title, desc)
                 parentFragmentManager.popBackStack()
             } else {
-                binding.editName.error = "Введите заголовок"
+                binding.editName.error = "Введите название"
             }
         }
-    }
 
+        binding.calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val date = String.format("%02d.%02d.%04d", dayOfMonth, month + 1, year)
+            binding.editDate.setText(date)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

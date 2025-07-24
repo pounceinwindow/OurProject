@@ -5,39 +5,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDEEDD"
     android:padding="16dp"
     tools:context=".ui.AddEditTaskFragment">
+
+    <Button
+        android:id="@+id/buttonGoBack"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#7BC678 "
+        android:background="@drawable/edittext_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGoToAccount"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#7BC678 "
+        android:background="@drawable/edittext_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
         android:hint="Название"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoBack" />
 
     <EditText
         android:id="@+id/editDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Выбрать дату"
-        app:layout_constraintTop_toBottomOf="@id/editName"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:hint="Дата (дд.мм.гггг)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editName" />
+
+    <FrameLayout
+        android:id="@+id/calendarView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintTop_toBottomOf="@id/editDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Подтвердить"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#7BC678 "
         android:enabled="false"
-        app:layout_constraintTop_toBottomOf="@id/editDate"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Сохранить"
+        android:background="@drawable/edittext_background"
+        android:textColor="#DDEEDD"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
