@@ -60,10 +60,11 @@ class AddEditTaskFragment : Fragment() {
 
         binding.buttonSubmit.setOnClickListener {
             val title = binding.editName.text.toString().trim()
-            val desc = binding.editDate.text.toString().trim()
+            val date = binding.editDate.text.toString().trim() // теперь это именно дата
+            val desc = ""
 
             if (title.isNotEmpty()) {
-                viewModel.saveTask(taskId, title, desc)
+                viewModel.saveTask(taskId, title, desc , date) // вызов обновлённой версии
                 parentFragmentManager.popBackStack()
             } else {
                 binding.editName.error = "Введите название"
