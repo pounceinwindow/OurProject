@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Дата (дд.мм.гггг)"
-        android:inputType="text"
+        android:inputType="date"
         android:imeOptions="actionDone"
         android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
