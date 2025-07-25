@@ -5,64 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDEEDD"
+    android:background="@color/light_green"
     android:padding="16dp"
     tools:context=".ui.AddEditTaskFragment">
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonGoBack"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#7BC678 "
-        android:background="@drawable/edittext_background"
+        style="@style/CustomIconButton"
+        android:src="@drawable/ic_back"
+        android:contentDescription="@string/go_back_hint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonGoToAccount"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#7BC678 "
-        android:background="@drawable/edittext_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Название"
+        style="@style/CustomEditText"
+        android:hint="@string/task_name_hint"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoBack" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoBack"
+        tools:ignore="MissingConstraints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/editDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Дата (дд.мм.гггг)"
+        style="@style/CustomEditText"
+        android:hint="@string/task_date_hint"
         android:inputType="date"
         android:imeOptions="actionDone"
-        android:background="@drawable/edittext_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editName" />
+        app:layout_constraintTop_toBottomOf="@id/editName"
+        tools:ignore="MissingConstraints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <FrameLayout
         android:id="@+id/calendarView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_background"
+        style="@style/CustomEditText"
         app:layout_constraintTop_toBottomOf="@id/editDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        tools:ignore="MissingConstraints">
 
         <CalendarView
             android:id="@+id/calendar"
@@ -76,13 +57,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#7BC678 "
+        android:background="@drawable/button_submit_selector"
         android:enabled="false"
-        android:text="Сохранить"
-        android:background="@drawable/edittext_background"
-        android:textColor="#DDEEDD"
+        android:paddingVertical="8dp"
+        android:text="@string/save_button"
+        android:textColor="@color/button_text_selector"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calendarView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

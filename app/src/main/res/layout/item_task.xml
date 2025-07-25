@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/teal_700"
-    android:padding="12dp"
-    android:layout_marginBottom="8dp">
+    android:background="@drawable/item_background"
+    android:padding="16dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp">
+
+    <!-- Фон элемента с закругленными углами -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="29dp"
-        android:layout_height="26dp"
-        android:buttonTint="@color/teal_200"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:buttonTint="@color/primary_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,39 +35,42 @@
         android:id="@+id/titleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:text="Task title"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:text="@string/task_title_sample"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@id/dateText"
         app:layout_constraintEnd_toStartOf="@id/editIcon"
         app:layout_constraintStart_toEndOf="@id/checkBox"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="318dp"
-        android:layout_height="23dp"
-        android:layout_marginLeft="8dp"
-        android:text="☀ My Day"
-        android:textColor="#AAAAAA"
-        android:textSize="16sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/my_day"
+        android:textColor="@color/text_gray"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/editIcon"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/titleText"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
 
     <ImageView
         android:id="@+id/editIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:contentDescription="Edit"
-        android:padding="4dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:contentDescription="@string/edit_hint"
         android:src="@drawable/ic_edit"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="6dp"
+        app:tint="@color/primary_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@android:color/white" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

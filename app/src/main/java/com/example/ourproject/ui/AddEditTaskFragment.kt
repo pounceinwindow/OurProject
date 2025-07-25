@@ -52,7 +52,15 @@ class AddEditTaskFragment : Fragment() {
 
         binding.editName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                binding.buttonSubmit.isEnabled = !s.isNullOrEmpty()
+                 enableEditButton()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        binding.editDate.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                enableEditButton()
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -80,5 +88,14 @@ class AddEditTaskFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun enableEditButton(){
+        if(!binding.editName.text.isNullOrEmpty() && !binding.editDate.text.isNullOrEmpty()){
+            binding.buttonSubmit.isEnabled = true
+        }
+        else{
+            binding.buttonSubmit.isEnabled = false
+        }
     }
 }

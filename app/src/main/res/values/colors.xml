@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#8E8787</color>
+    <color name="light_green">#DDEEDD</color>
+    <color name="primary_light">#7BC678</color>
+    <color name="primary_dark">#5FA55C</color>
+    <color name="disabled_button">#B3B3B3</color>
+    <color name="dark_green">#617C61</color>
+    <color name="text_gray">#AAAAAA</color>
+    <color name="button_text">#DDEEDD</color>
+    <color name="button_text_disabled">#80DDEEDD</color>
 </resources>

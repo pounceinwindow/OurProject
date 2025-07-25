@@ -5,4 +5,27 @@
         <item name="colorPrimaryDark">@android:color/holo_blue_dark</item>
         <item name="colorAccent">@android:color/holo_orange_light</item>
     </style>
+
+    <!-- Стиль для кнопок с иконками -->
+    <style name="CustomIconButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:backgroundTint">@color/primary_light</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:tint">@color/white</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Стиль для полей ввода -->
+    <style name="CustomEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
+
