@@ -17,27 +17,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/buttonGoAccount"
+        style="@style/CustomIconButton"
+        android:src="@drawable/ic_account"
+        android:contentDescription="@string/go_account_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         style="@style/CustomEditText"
         android:hint="@string/task_name_hint"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@+id/buttonGoBack"
-        tools:ignore="MissingConstraints"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         style="@style/CustomEditText"
         android:hint="@string/task_date_hint"
         android:inputType="date"
         android:imeOptions="actionDone"
         app:layout_constraintTop_toBottomOf="@id/editName"
-        tools:ignore="MissingConstraints"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        tools:ignore="MissingConstraints" />
 
     <FrameLayout
         android:id="@+id/calendarView"
@@ -61,10 +68,12 @@
         android:enabled="false"
         android:paddingVertical="8dp"
         android:text="@string/save_button"
+        android:textAlignment="center"
         android:textColor="@color/button_text_selector"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calendarView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

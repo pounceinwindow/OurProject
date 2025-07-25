@@ -8,5 +8,9 @@
     <string name="my_day">☀ My Day</string>
     <string name="edit_hint">Edit</string>
     <string name="go_back_hint">Назад</string>
+    <string name="go_account_hint">Аккаунт</string>
     <string name="account_hint">Аккаунт</string>
+    <string name="entire_button">Войти</string>
+    <string name="email_field">Почта</string>
+    <string name="password_field">Пароль</string>
 </resources>
