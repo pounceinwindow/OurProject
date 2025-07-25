@@ -91,11 +91,6 @@ class AddEditTaskFragment : Fragment() {
     }
 
     fun enableEditButton(){
-        if(!binding.editName.text.isNullOrEmpty() && !binding.editDate.text.isNullOrEmpty()){
-            binding.buttonSubmit.isEnabled = true
-        }
-        else{
-            binding.buttonSubmit.isEnabled = false
-        }
+        binding.buttonSubmit.isEnabled = !binding.editName.text.isNullOrEmpty() && !binding.editDate.text.isNullOrEmpty()
     }
 }
